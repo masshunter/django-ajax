@@ -14,10 +14,17 @@
             <div class="date">
                 {{ post.published_date }}
             </div>
+        {% else %}
+            <a href="{% url 'post_publish' pk=post.pk %}" class="btn btn-default">배포</a>
         {% endif %}
         {% if user.is_authenticated %}
             <a href="{% url 'post_edit' pk=post.pk %}" class="btn btn-default">
                 <span class="glyphicon glyphicon-pencil"></span>
+            </a>
+        {% endif %}
+        {% if user.is_authenticated %}
+            <a class="btn btn-default" href="{% url 'post_remove' pk=post.pk %}">
+                <span class="glyphicon glyphicon-remove"></span>
             </a>
         {% endif %}
     </div>
