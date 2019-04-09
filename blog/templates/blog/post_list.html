@@ -7,7 +7,17 @@
     <title>post_list</title>
 </head>
 <body>
-    <p>Hi There!</p>
-    <p>It works!</p>
+    {% for post in posts %}
+    저자: {{post.author}} <br>
+    제목: {{post.title}} <br>
+    내용: {{post.text}}<br>
+    {% if post.created_date %}
+    작성일: {{post.created_date}}<br>
+    {%endif%}
+    {% if post.published_date %}
+    작성일: {{post.published_date}}<br>
+    {%endif%}
+    <br>
+    {% endfor %}
 </body>
 </html>
