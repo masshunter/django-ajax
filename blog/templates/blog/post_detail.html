@@ -1,0 +1,19 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <div class="post">
+        <p> 저자: {{ post.author }} </p>
+        <p> 제목: {{ post.title }} </p>
+        <p> 내용: {{ post.text }} </p>
+        {% if post.created_date %}
+            <div class="date">
+                작성일: {{ post.created_date }}
+            </div>
+        {% endif %}
+        {% if post.published_date %}
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
